@@ -1,6 +1,6 @@
 package me.Mugi.FinerFlips;
 
-import me.Mugi.FinerFlips.commands.NECCommand;
+import me.Mugi.FinerFlips.commands.FFCommand;
 import me.Mugi.FinerFlips.commands.subcommands.Help;
 import me.Mugi.FinerFlips.commands.subcommands.Subcommand;
 import me.Mugi.FinerFlips.commands.subcommands.Toggle;
@@ -58,7 +58,7 @@ public class Main {
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        ProgressManager.ProgressBar progressBar = ProgressManager.push("Not Enough Coins", 4);
+        ProgressManager.ProgressBar progressBar = ProgressManager.push("Finerflips", 4);
         authenticator = new Authenticator(progressBar);
         try {
             authenticator.authenticate(true);
@@ -66,7 +66,7 @@ public class Main {
             while (progressBar.getStep() < (progressBar.getSteps() - 1))
                 progressBar.step("loading-failed-" + progressBar.getStep());
             e.printStackTrace();
-            Reference.logger.error("NotEnoughCoins have been disabled due to an error while authenticating. Please check the logs for more information.");
+            Reference.logger.error("Finerflips have been disabled due to an error while authenticating. Please check the logs for more information.");
             return;
         }
         progressBar.step("Registering events, commands, hooks & tasks");
